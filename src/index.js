@@ -1,23 +1,5 @@
-const express = require('express')
-require('./db/mongoose')
-const cors = require('cors')
-const userRouter = require('./routers/user')
-const taskRouter = require('./routers/task')
-
-const app = express()
-const port = process.env.PORT
-// app.use((req, res, next) => {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     res.header("Access-Control-Allow-Credentials", "true")
-//     next();
-// })
-app.use(cors())
-
-app.use(express.json())
-app.use(userRouter)
-app.use(taskRouter)
+const app = require('./app')
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`)
+    console.log(`Server running on port ${process.env.PORT}`)
 })
